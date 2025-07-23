@@ -29,10 +29,9 @@ final class BloodPressureTool: Tool {
     private let diastolicType = HKQuantityType(.bloodPressureDiastolic)
     private let bloodPressureType = HKCorrelationType(.bloodPressure)
 
-    func call(arguments: Arguments) async throws -> ToolOutput {
+    func call(arguments: Arguments) async throws -> GeneratedContent {
         let (systolic, diastolic) = try await fetchLatestBloodPressure()
-        let content = GeneratedContent(properties: ["systolic": Int(systolic), "diastolic": Int(diastolic)])
-        return ToolOutput(content)
+        return GeneratedContent(properties: ["systolic": Int(systolic), "diastolic": Int(diastolic)])
     }
 
     // MARK: - Private
