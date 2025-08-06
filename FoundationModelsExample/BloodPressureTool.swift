@@ -23,7 +23,7 @@ final class BloodPressureTool: Tool {
     @Generable
     struct Arguments {}
 
-    private lazy var healthStore = HKHealthStore()
+    private let healthStore = HKHealthStore()
 
     private let systolicType = HKQuantityType(.bloodPressureSystolic)
     private let diastolicType = HKQuantityType(.bloodPressureDiastolic)
